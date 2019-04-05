@@ -1,0 +1,25 @@
+<%= link_to "口コミを書く", new_comment_path %>
+<p><%= link_to "お店を登録する", new_post_path %></p>
+
+<div class="post-index-wrapper">
+  <div class="container">
+    <% @posts.each do |post| %>
+      <div class="row">
+        <div class="col-md-3 col-md-offset-2">
+          <div class="post-index-single">
+            <h2 class="post-author">
+              <%= post.title %>
+            </h2>
+            <%= image_tag post.image.url %>
+            <p class="post-text">
+              <%= post.content %>
+            </p>
+
+
+
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

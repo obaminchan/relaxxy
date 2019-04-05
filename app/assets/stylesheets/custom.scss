@@ -1,0 +1,72 @@
+h1, h2 {
+  font-weight: 100;
+}
+
+.text-white {
+  color: black;
+}
+
+.link {
+  color: #fff;
+    background-color: #3a3a3a; /* 背景色をグレー*/
+    border: 2px solid #000; /* 要素の枠を2pxの太さで、線の種類をsolidに、色を黒にする */
+    text-decoration: none; /* リンクに出てくる下線を無効にする*/
+}
+
+.link:hover{
+    color: #000; /* 文字色を白にする */
+    background-color: #c9c9c9; /* 背景色をグレー（#c9c9c9）にする */
+    text-decoration: none; /* リンクに出てくる下線を無効にする*/
+}
+
+.top-hero-wrapper {
+  width: 100vw;
+  height: 100vh;
+  background: image-url('massage.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #fff;
+}
+
+.top-hero-container {
+  padding-top: 220px;
+  h1 {
+    font-size: 56px;
+    margin-bottom: 20px;
+  }
+  h2 {
+    margin-bottom: 60px;
+  }
+}
+
+.post-index-wrapper {
+  padding-top: 70px;
+  background-color: #fafafa;
+  .post-index-single {
+    background-color: #fff;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 30px;
+    border: 1px solid #e6ecf0;
+    border-radius: 3px;
+    .post-author {
+      padding-right: 20px;
+      padding-left: 20px;
+    }
+
+    .post-text {
+      padding-right: 20px;
+      padding-left: 20px;
+    }
+
+    img {
+      margin-top: 10px;
+      margin-bottom: 20px;
+      width: 100%;
+    }
+
+    
+  }
+}
