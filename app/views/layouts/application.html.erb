@@ -6,29 +6,23 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
-      crossorigin="anonymous"></script>
-
-
-    <script>
-    $('#star-rating').raty({
-    path: '/assets/',
-    click: function(score, e) {
-    $("#book_rating").val(score)
-    }
-    });
-    </script>
 
   </head>
 
   <body>
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>" role="alert"><%= value %></div>
+    <% end %>
+    <nav class="navigation">
+      <div class="container">
+        <%= link_to "お店を登録する", new_post_path %>
+        <%= link_to "トップページへ戻る", root_path %>
+       </div>
+       </nav>
     <%= yield %>
-
-
   </body>
 
 </html>

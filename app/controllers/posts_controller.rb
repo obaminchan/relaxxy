@@ -8,7 +8,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)   #多分ここが原因・・・かcomment_id がないから
+    @post = Post.new(post_params)   
 
       if @post.save
       redirect_to posts_path, success: "お店の登録に成功しました"   #HTTPリクエスト（ここではGETメソッド）をサーバーに送りそこから帰ってくるHTMLをユーザーに表示（Posts.index.html)
@@ -16,7 +16,7 @@ class PostsController < ApplicationController
       flash.now[:danger] = "お店の登録に失敗しました"
       render :new                                                   #Action内で呼び出すHTML,Viewを指定するメソッド
       end
-    end
+  end
 
     private
      def post_params

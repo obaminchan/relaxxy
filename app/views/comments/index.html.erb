@@ -1,0 +1,38 @@
+
+<p><%= link_to "お店一覧へ戻る", posts_path %></p>
+
+<div class="post-index-wrapper">
+  <div class="container">
+    <div class="row">
+    <% @comments.each do |comment| %>
+      <div id='star' data-rating=<%= comment.rating %>></div>
+        <div class="col-md-3 col-md-offset-2">
+          <div class="post-index-single">
+          
+            <h2 class="post-title">
+              <%= comment.title %>
+            </h2>
+            <p class="post-text">
+             <%= comment.content %>
+            </p>
+            <%= image_tag comment.image.url %>
+    <%= hidden_field_tag :post_id, @post_id %>
+          </div>
+        </div>
+     <% end %>
+   </div>
+  </div>
+</div>
+
+
+<script>
+(window.onload = function() {
+$('#star').raty({
+  size: 20,
+  readOnly: true,
+  starOff:  '<%= asset_path('icons/star-off.png') %>',
+  starOn : '<%= asset_path('icons/star-on.png') %>',
+  score: function() { return $(this).attr('data-rating') }
+})})();
+
+</script>

@@ -1,23 +1,49 @@
-
-
 <div class="post-index-wrapper">
   <div class="container">
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <h1 class="text-center">評価と口コミ</h1>
+
         <%= form_for @comment do |f| %>
+
+        <div class="form-group">
+          <div id="star">
+            <%= f.label :rating, "評価" %>
+            <%= f.hidden_field :rating, id: :comment_rating %>
+          </div>
+
+          </div>
+
+        <div class="form-group">
+          <%= f.label :title, "タイトル" %>
+          <%= f.text_field :title, class: 'form-control' %>
+          </div>
          <div class="form-group">
            <%= f.label :content, "口コミ" %>
            <%= f.text_area :content, class: 'form-control' %>
+         </div>
+         <div class="form-group">
+           <%= f.label :image, "写真" %>
+           <%= f.file_field :image%>
          </div>
 
 
        <%= hidden_field_tag :post_id, @post_id %>
        <%= f.submit '投稿', class: 'btn btn-black btn-block' %>
+
      <% end %>
-    <div id='star-rating'></div>
+     <%= link_to "キャンセル", posts_path %>
 
      </div>
    </div>
  </div>
 </div>
+
+
+<script>
+$('#star').raty({
+  starOff:  '<%= asset_path('icons/star-off.png') %>',
+  starOn : '<%= asset_path('icons/star-on.png') %>',
+    scoreName: 'comment[rating]'
+});
+</script>

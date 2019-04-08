@@ -5,6 +5,7 @@ class Post < ApplicationRecord
   validates :content, presence: true
 
   has_many :comments
+  has_many :comment_posts, through: :comments, source: 'post' 
 
   mount_uploader :image, ImageUploader
 end

@@ -1,19 +1,27 @@
-<%= link_to "口コミを書く", new_comment_path %>
-<p><%= link_to "お店を登録する", new_post_path %></p>
+
 
 <div class="post-index-wrapper">
   <div class="container">
     <% @posts.each do |post| %>
       <div class="row">
-        <div class="col-md-3 col-md-offset-2">
+        <div class="col-md-6 col-md-offset-3">
           <div class="post-index-single">
-            <h2 class="post-author">
+            <h2 class="post-title">
               <%= post.title %>
             </h2>
             <%= image_tag post.image.url %>
             <p class="post-text">
               <%= post.content %>
             </p>
+
+
+            <%= link_to new_comment_path + '?post_id=' + post.id.to_s do %>
+            口コミを書く
+             <% end %>
+             <%= image_tag 'icons/write-icon-18.jpg', class: 'post-index-icon' %>
+
+             <%= link_to "口コミを見る", comments_path %>
+             <%= image_tag 'icons/comment.png', class: 'post-index-icon' %>
 
 
 
