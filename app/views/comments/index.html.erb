@@ -5,10 +5,10 @@
   <div class="container">
     <div class="row">
     <% @comments.each do |comment| %>
-      <div id='star' data-rating=<%= comment.rating %>></div>
-        <div class="col-md-3 col-md-offset-2">
+      <div class='star' data-rating=<%= comment.rating %>></div>
+        <div class="col-md-4 col-md-offset-2">
           <div class="post-index-single">
-          
+
             <h2 class="post-title">
               <%= comment.title %>
             </h2>
@@ -16,7 +16,7 @@
              <%= comment.content %>
             </p>
             <%= image_tag comment.image.url %>
-    <%= hidden_field_tag :post_id, @post_id %>
+            <%= hidden_field_tag :post_id, @post_id %>
           </div>
         </div>
      <% end %>
@@ -25,14 +25,13 @@
 </div>
 
 
-<script>
-(window.onload = function() {
-$('#star').raty({
-  size: 20,
-  readOnly: true,
-  starOff:  '<%= asset_path('icons/star-off.png') %>',
-  starOn : '<%= asset_path('icons/star-on.png') %>',
-  score: function() { return $(this).attr('data-rating') }
-})})();
 
+<script>
+    $('.star').raty({
+      path: '/assets/icons',
+      readOnly: true,
+      score: function() {
+            return $(this).attr('data-rating');
+    }
+  });
 </script>
