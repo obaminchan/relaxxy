@@ -20,10 +20,15 @@
       <div class="container">
         <%= link_to "お店を登録する", new_post_path %>
         <%= link_to "トップページへ戻る", root_path %>
+        <p>
+        <%= link_to "新規登録", users_new_path %>
+        <%= link_to "ログイン", sessions_new_path %>
+        </p>
        </div>
        </nav>
     <%= yield %>
-    <script>
+
+<script>
   $(function(){
     $(".alert").fadeOut(5000);
   });

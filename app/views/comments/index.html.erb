@@ -17,6 +17,10 @@
             </p>
             <%= image_tag comment.image.url %>
             <%= hidden_field_tag :post_id, @post_id %>
+            <%= link_to "編集", edit_comment_path(comment.id) %>
+            <%= link_to comment_path(comment.id), method: :delete, :class => "btn btn-small" do %>
+               削除
+            <% end %>
           </div>
         </div>
      <% end %>

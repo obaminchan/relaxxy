@@ -20,6 +20,23 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    comment = Comment.find(params[:id])
+    comment.destroy
+    redirect_to comments_path
+  end
+
+  def edit                                    # 新規画面からのデータ送信はPostメソッド、編集画面からのデータ送信はPatchメソッド
+    comment = Comment.find_by(post_id:params[:post_id])
+  end
+
+  def update
+    comment = Comment.find_by(post_id:params[:post_id])
+    comment.update(comment_params)
+    redirect_to comments_path
+  end
+
+
   private
   def comment_params
     params.require(:comment).permit(:content, :image, :title, :rating)

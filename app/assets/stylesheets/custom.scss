@@ -85,7 +85,7 @@ h1, h2 {
           height: 30px;
         }
 
-        
+
 
   }
 }
@@ -94,4 +94,16 @@ h1, h2 {
 margin-bottom: 0px;
 background-color: pink;
 height: 40px;
+
+p {
+text-align: right
+ }
+
+}
+
+.alert {
+  margin-bottom: 0px;
+  position: fixed;
+  width: 100%;
+  z-index: 10000;
 }
